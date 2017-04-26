@@ -1,3 +1,13 @@
 .line {
   fill: none;
 }
+
+.tooltip {
+  background: #606060;
+  color: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  text-align: left;
+}
