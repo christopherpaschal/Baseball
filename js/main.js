@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 var margin = {top: 25, right: 25, bottom: 25, left: 25},
     width = 1200 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 600 - margin.top - margin.bottom;
 
 
 // set the scales
@@ -251,6 +251,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "NYY";
       })])
       .attr("class", "line")
+      .attr("id", "NYYline")
       .attr("stroke", teamColor("NYY"))
       .attr("d", winsLine);
 
@@ -363,6 +364,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "BOS";
       })])
       .attr("class", "line")
+      .attr("id", "BOSline")
       .attr("stroke", teamColor("BOS"))
       .attr("d", winsLine);
 
@@ -393,7 +395,7 @@ d3.csv("data/Teams.csv", function(error, data) {
 
   // Add the X Axis
   svg.append("g")
-      .attr('class', 'axisX')
+      .attr('class', 'axis')
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale).tickFormat(d3.format("d")))
       .append("text")
@@ -422,6 +424,9 @@ d3.csv("data/Teams.csv", function(error, data) {
       .data(data)
   .enter().append("circle")
       .attr("class", "dot")
+      .attr("id", function(d) {
+        return d.Team + "dot";
+      })
       .attr("r", 4)
       .attr("cx", function(d) { return xScale(d.Year); })
       .attr("cy", function(d) { return yScale(d.Wins); })
@@ -452,37 +457,36 @@ d3.csv("data/Teams.csv", function(error, data) {
           tooltip.style("opacity", 0);
       });
 
-    //add scatterplot to overlay on line graph
-    // svg.selectAll("dot")
-    //     .data(dataATL)
-    // .enter().append("circle")
-    //     .attr("class", "dot")
-    //     .attr("r", 4)
-    //     .attr("cx", function(d) { return xScale(d.Year); })
-    //     .attr("cy", function(d) { return yScale(d.Wins); })
-    //     .attr("fill", "#0000ff")
-    //     .attr("opacity", function(d) {
-    //       if (d.WSWin == "Y") {
-    //         return 1;
-    //       } else {
-    //         return 0;
-    //       }
-    //     }).on("mouseover", function(d) {
-    //       d3.select(this).attr("opacity", 1)
-    //       tooltip.style("opacity", 1);
-    //       tooltip.html("Year: " + d.Year + "<br/>" + "Wins: " + d.Wins)
-    //         .style("left", d3.event.pageX + 5 + "px")
-    //         .style("top", d3.event.pageY + 5 + "px");
-    //     })
-    //     .on("mouseout", function(d) {
-    //         d3.select(this).attr("opacity",  function(d) {
-    //           if (d.WSWin == "Y") {
-    //             return 1;
-    //           } else {
-    //             return 0;
-    //           }
-    //         });
-    //         tooltip.style("opacity", 0);
-    //     });
+    d3.selectAll("input[name='checkbox']").on("change", function() {
 
-})
+      // grey out all
+      svg.selectAll(".line").style("opacity", 0.1);
+      svg.selectAll(".dot").style("display", "none");
+
+      // check all team's checkboxes, grey out accordingly
+      if (document.getElementById("NYY").checked) {
+        svg.selectAll("#NYYline").style("opacity", 1);
+        svg.selectAll("#NYYdot").style("display", "inline")
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      }
+      if (document.getElementById("BOS").checked) {
+        svg.selectAll("#BOSline").style("opacity", 1);
+        svg.selectAll("#BOSdot").style("display", "inline")
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      }
+
+    });
+
+});
