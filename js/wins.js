@@ -155,6 +155,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "WSN";
       })])
       .attr("class", "line")
+      .attr("id", "WSNWinsLine")
       .attr("stroke", teamColor("WSN"))
       .attr("d", winsLine);
 
@@ -163,6 +164,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "TOR";
       })])
       .attr("class", "line")
+      .attr("id", "TORWinsLine")
       .attr("stroke", teamColor("TOR"))
       .attr("d", winsLine);
 
@@ -171,6 +173,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "TEX";
       })])
       .attr("class", "line")
+      .attr("id", "TEXWinsLine")
       .attr("stroke", teamColor("TEX"))
       .attr("d", winsLine);
 
@@ -187,6 +190,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "STL";
       })])
       .attr("class", "line")
+      .attr("id", "STLWinsLine")
       .attr("stroke", teamColor("STL"))
       .attr("d", winsLine);
 
@@ -195,6 +199,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "SFG";
       })])
       .attr("class", "line")
+      .attr("id", "SFGWinsLine")
       .attr("stroke", teamColor("SFG"))
       .attr("d", winsLine);
 
@@ -203,6 +208,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "SEA";
       })])
       .attr("class", "line")
+      .attr("id", "SEAWinsLine")
       .attr("stroke", teamColor("SEA"))
       .attr("d", winsLine);
 
@@ -211,6 +217,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "SDP";
       })])
       .attr("class", "line")
+      .attr("id", "SDPWinsLine")
       .attr("stroke", teamColor("SDP"))
       .attr("d", winsLine);
 
@@ -219,6 +226,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "PIT";
       })])
       .attr("class", "line")
+      .attr("id", "PITWinsLine")
       .attr("stroke", teamColor("PIT"))
       .attr("d", winsLine);
 
@@ -227,6 +235,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "PHI";
       })])
       .attr("class", "line")
+      .attr("id", "PHIWinsLine")
       .attr("stroke", teamColor("PHI"))
       .attr("d", winsLine);
 
@@ -235,6 +244,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "OAK";
       })])
       .attr("class", "line")
+      .attr("id", "OAKWinsLine")
       .attr("stroke", teamColor("OAK"))
       .attr("d", winsLine);
 
@@ -243,6 +253,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "NYM";
       })])
       .attr("class", "line")
+      .attr("id", "NYMWinsLine")
       .attr("stroke", teamColor("NYM"))
       .attr("d", winsLine);
 
@@ -251,7 +262,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "NYY";
       })])
       .attr("class", "line")
-      .attr("id", "NYYline")
+      .attr("id", "NYYWinsLine")
       .attr("stroke", teamColor("NYY"))
       .attr("d", winsLine);
 
@@ -260,6 +271,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "MIN";
       })])
       .attr("class", "line")
+      .attr("id", "MINWinsLine")
       .attr("stroke", teamColor("MIN"))
       .attr("d", winsLine);
 
@@ -268,6 +280,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "MIL";
       })])
       .attr("class", "line")
+      .attr("id", "MILWinsLine")
       .attr("stroke", teamColor("MIL"))
       .attr("d", winsLine);
 
@@ -276,6 +289,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "FLA";
       })])
       .attr("class", "line")
+      .attr("id", "FLAWinsLine")
       .attr("stroke", teamColor("FLA"))
       .attr("d", winsLine);
 
@@ -284,6 +298,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "LAD";
       })])
       .attr("class", "line")
+      .attr("id", "LADWinsLine")
       .attr("stroke", teamColor("LAD"))
       .attr("d", winsLine);
 
@@ -292,6 +307,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "ANA";
       })])
       .attr("class", "line")
+      .attr("id", "ANAWinsLine")
       .attr("stroke", teamColor("ANA"))
       .attr("d", winsLine);
 
@@ -300,6 +316,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "KCR";
       })])
       .attr("class", "line")
+      .attr("id", "KCRWinsLine")
       .attr("stroke", teamColor("KCR"))
       .attr("d", winsLine);
 
@@ -308,6 +325,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "HOU";
       })])
       .attr("class", "line")
+      .attr("id", "HOUWinsLine")
       .attr("stroke", teamColor("HOU"))
       .attr("d", winsLine);
 
@@ -316,6 +334,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "DET";
       })])
       .attr("class", "line")
+      .attr("id", "DETWinsLine")
       .attr("stroke", teamColor("DET"))
       .attr("d", winsLine);
 
@@ -324,6 +343,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "COL";
       })])
       .attr("class", "line")
+      .attr("id", "COLWinsLine")
       .attr("stroke", teamColor("COL"))
       .attr("d", winsLine);
 
@@ -332,6 +352,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "CLE";
       })])
       .attr("class", "line")
+      .attr("id", "CLEWinsLine")
       .attr("stroke", teamColor("CLE"))
       .attr("d", winsLine);
 
@@ -340,6 +361,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "CIN";
       })])
       .attr("class", "line")
+      .attr("id", "CINWinsLine")
       .attr("stroke", teamColor("CIN"))
       .attr("d", winsLine);
 
@@ -348,6 +370,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "CHC";
       })])
       .attr("class", "line")
+      .attr("id", "CHCWinsLine")
       .attr("stroke", teamColor("CHC"))
       .attr("d", winsLine);
 
@@ -356,6 +379,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "CHW";
       })])
       .attr("class", "line")
+      .attr("id", "CHWWinsLine")
       .attr("stroke", teamColor("CHW"))
       .attr("d", winsLine);
 
@@ -364,7 +388,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "BOS";
       })])
       .attr("class", "line")
-      .attr("id", "BOSline")
+      .attr("id", "BOSWinsLine")
       .attr("stroke", teamColor("BOS"))
       .attr("d", winsLine);
 
@@ -373,6 +397,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "BAL";
       })])
       .attr("class", "line")
+      .attr("id", "BALWinsLine")
       .attr("stroke", teamColor("BAL"))
       .attr("d", winsLine);
 
@@ -381,6 +406,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "ARI";
       })])
       .attr("class", "line")
+      .attr("id", "ARIWinsLine")
       .attr("stroke", teamColor("ARI"))
       .attr("d", winsLine);
 
@@ -389,6 +415,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "ATL";
       })])
       .attr("class", "line")
+      .attr("id", "ATLWinsLine")
       .attr("stroke", teamColor("ATL"))
       .attr("d", winsLine);
 
@@ -425,7 +452,7 @@ d3.csv("data/Teams.csv", function(error, data) {
   .enter().append("circle")
       .attr("class", "dot")
       .attr("id", function(d) {
-        return d.Team + "dot";
+        return d.Team + "WinsDot";
       })
       .attr("r", 4)
       .attr("cx", function(d) { return xScale(d.Year); })
@@ -459,14 +486,12 @@ d3.csv("data/Teams.csv", function(error, data) {
 
     d3.selectAll("input[name='checkbox']").on("change", function() {
 
-      // grey out all
-      svg.selectAll(".line").style("opacity", 0.1);
-      svg.selectAll(".dot").style("display", "none");
-
       // check all team's checkboxes, grey out accordingly
-      if (document.getElementById("NYY").checked) {
-        svg.selectAll("#NYYline").style("opacity", 1);
-        svg.selectAll("#NYYdot").style("display", "inline")
+
+      if (document.getElementById("BALcheckbox").checked) {
+        svg.selectAll("#BALWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#BALWinsDot").style("display", "inline")
+          .transition().duration(1000)
           .style("opacity", function(d) {
             if (d.WSWin == "Y") {
               return 1;
@@ -474,10 +499,16 @@ d3.csv("data/Teams.csv", function(error, data) {
               return 0;
             }
           });
+      } else {
+        svg.selectAll("#BALWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#BALWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#BALWinsDot").style("display", "none");
       }
-      if (document.getElementById("BOS").checked) {
-        svg.selectAll("#BOSline").style("opacity", 1);
-        svg.selectAll("#BOSdot").style("display", "inline")
+
+      if (document.getElementById("BOScheckbox").checked) {
+        svg.selectAll("#BOSWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#BOSWinsDot").style("display", "inline")
+          .transition().duration(1000)
           .style("opacity", function(d) {
             if (d.WSWin == "Y") {
               return 1;
@@ -485,7 +516,238 @@ d3.csv("data/Teams.csv", function(error, data) {
               return 0;
             }
           });
+      } else {
+        svg.selectAll("#BOSWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#BOSWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#BOSWinsDot").style("display", "none");
       }
+
+      if (document.getElementById("NYYcheckbox").checked) {
+        svg.selectAll("#NYYWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#NYYWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#NYYWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#NYYWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#NYYWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("TBDcheckbox").checked) {
+        svg.selectAll("#TBDWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#TBDWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#TBDWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#TBDWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#TBDWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("TORcheckbox").checked) {
+        svg.selectAll("#TORWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#TORWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#TORWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#TORWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#TORWinsDot").style("display", "none");
+      }
+
+
+
+
+      if (document.getElementById("CHWcheckbox").checked) {
+        svg.selectAll("#CHWWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#CHWWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#CHWWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#CHWWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#CHWWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("CLEcheckbox").checked) {
+        svg.selectAll("#CLEWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#CLEWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#CLEWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#CLEWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#CLEWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("DETcheckbox").checked) {
+        svg.selectAll("#DETWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#DETWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#DETWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#DETWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#DETWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("KCRcheckbox").checked) {
+        svg.selectAll("#KCRWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#KCRWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#KCRWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#KCRWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#KCRWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("MINcheckbox").checked) {
+        svg.selectAll("#MINWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#MINWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#MINWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#MINWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#MINWinsDot").style("display", "none");
+      }
+
+
+
+      if (document.getElementById("HOUcheckbox").checked) {
+        svg.selectAll("#HOUWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#HOUWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#HOUWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#HOUWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#HOUWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("ANAcheckbox").checked) {
+        svg.selectAll("#ANAWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#ANAWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#ANAWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#ANAWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#ANAWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("OAKcheckbox").checked) {
+        svg.selectAll("#OAKWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#OAKWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#OAKWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#OAKWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#OAKWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("SEAcheckbox").checked) {
+        svg.selectAll("#SEAWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#SEAWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#SEAWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#SEAWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#SEAWinsDot").style("display", "none");
+      }
+
+      if (document.getElementById("TEXcheckbox").checked) {
+        svg.selectAll("#TEXWinsLine").transition().duration(1000).style("opacity", 1);
+        svg.selectAll("#TEXWinsDot").style("display", "inline")
+          .transition().duration(1000)
+          .style("opacity", function(d) {
+            if (d.WSWin == "Y") {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+      } else {
+        svg.selectAll("#TEXWinsLine").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#TEXWinsDot").transition().duration(1000).style("opacity", 0.1);
+        svg.selectAll("#TEXWinsDot").style("display", "none");
+      }
+
 
     });
 
