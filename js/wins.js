@@ -191,6 +191,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team == "TBD";
       })])
       .attr("class", "line")
+      .attr("id", "TBDWinsLine")
       .attr("stroke", teamColor("TBD"))
       .attr("d", winsLine);
 
@@ -1021,5 +1022,196 @@ d3.csv("data/Teams.csv", function(error, data) {
 
     });
 
+    // allow user to uncheck all teams
+    document.getElementById("uncheckAll").onclick = function() {
+
+      if (document.getElementById("BALcheckbox").checked) {
+        document.getElementById("BALcheckbox").click();
+      }
+      if (document.getElementById("BOScheckbox").checked) {
+        document.getElementById("BOScheckbox").click();
+      }
+      if (document.getElementById("NYYcheckbox").checked) {
+        document.getElementById("NYYcheckbox").click();
+      }
+      if (document.getElementById("TBDcheckbox").checked) {
+        document.getElementById("TBDcheckbox").click();
+      }
+      if (document.getElementById("TORcheckbox").checked) {
+        document.getElementById("TORcheckbox").click();
+      }
+      if (document.getElementById("CHWcheckbox").checked) {
+        document.getElementById("CHWcheckbox").click();
+      }
+      if (document.getElementById("CLEcheckbox").checked) {
+        document.getElementById("CLEcheckbox").click();
+      }
+      if (document.getElementById("DETcheckbox").checked) {
+        document.getElementById("DETcheckbox").click();
+      }
+      if (document.getElementById("KCRcheckbox").checked) {
+        document.getElementById("KCRcheckbox").click();
+      }
+      if (document.getElementById("MINcheckbox").checked) {
+        document.getElementById("MINcheckbox").click();
+      }
+      if (document.getElementById("HOUcheckbox").checked) {
+        document.getElementById("HOUcheckbox").click();
+      }
+      if (document.getElementById("ANAcheckbox").checked) {
+        document.getElementById("ANAcheckbox").click();
+      }
+      if (document.getElementById("OAKcheckbox").checked) {
+        document.getElementById("OAKcheckbox").click();
+      }
+      if (document.getElementById("SEAcheckbox").checked) {
+        document.getElementById("SEAcheckbox").click();
+      }
+      if (document.getElementById("TEXcheckbox").checked) {
+        document.getElementById("TEXcheckbox").click();
+      }
+      if (document.getElementById("ATLcheckbox").checked) {
+        document.getElementById("ATLcheckbox").click();
+      }
+      if (document.getElementById("FLAcheckbox").checked) {
+        document.getElementById("FLAcheckbox").click();
+      }
+      if (document.getElementById("NYMcheckbox").checked) {
+        document.getElementById("NYMcheckbox").click();
+      }
+      if (document.getElementById("PHIcheckbox").checked) {
+        document.getElementById("PHIcheckbox").click();
+      }
+      if (document.getElementById("WSNcheckbox").checked) {
+        document.getElementById("WSNcheckbox").click();
+      }
+      if (document.getElementById("CHCcheckbox").checked) {
+        document.getElementById("CHCcheckbox").click();
+      }
+      if (document.getElementById("CINcheckbox").checked) {
+        document.getElementById("CINcheckbox").click();
+      }
+      if (document.getElementById("MILcheckbox").checked) {
+        document.getElementById("MILcheckbox").click();
+      }
+      if (document.getElementById("PITcheckbox").checked) {
+        document.getElementById("PITcheckbox").click();
+      }
+      if (document.getElementById("STLcheckbox").checked) {
+        document.getElementById("STLcheckbox").click();
+      }
+      if (document.getElementById("ARIcheckbox").checked) {
+        document.getElementById("ARIcheckbox").click();
+      }
+      if (document.getElementById("COLcheckbox").checked) {
+        document.getElementById("COLcheckbox").click();
+      }
+      if (document.getElementById("LADcheckbox").checked) {
+        document.getElementById("LADcheckbox").click();
+      }
+      if (document.getElementById("SDPcheckbox").checked) {
+        document.getElementById("SDPcheckbox").click();
+      }
+      if (document.getElementById("SFGcheckbox").checked) {
+        document.getElementById("SFGcheckbox").click();
+      }
+
+    }
+
+    // allow user to check all teams
+    document.getElementById("checkAll").onclick = function() {
+
+      if (!document.getElementById("BALcheckbox").checked) {
+        document.getElementById("BALcheckbox").click();
+      }
+      if (!document.getElementById("BOScheckbox").checked) {
+        document.getElementById("BOScheckbox").click();
+      }
+      if (!document.getElementById("NYYcheckbox").checked) {
+        document.getElementById("NYYcheckbox").click();
+      }
+      if (!document.getElementById("TBDcheckbox").checked) {
+        document.getElementById("TBDcheckbox").click();
+      }
+      if (!document.getElementById("TORcheckbox").checked) {
+        document.getElementById("TORcheckbox").click();
+      }
+      if (!document.getElementById("CHWcheckbox").checked) {
+        document.getElementById("CHWcheckbox").click();
+      }
+      if (!document.getElementById("CLEcheckbox").checked) {
+        document.getElementById("CLEcheckbox").click();
+      }
+      if (!document.getElementById("DETcheckbox").checked) {
+        document.getElementById("DETcheckbox").click();
+      }
+      if (!document.getElementById("KCRcheckbox").checked) {
+        document.getElementById("KCRcheckbox").click();
+      }
+      if (!document.getElementById("MINcheckbox").checked) {
+        document.getElementById("MINcheckbox").click();
+      }
+      if (!document.getElementById("HOUcheckbox").checked) {
+        document.getElementById("HOUcheckbox").click();
+      }
+      if (!document.getElementById("ANAcheckbox").checked) {
+        document.getElementById("ANAcheckbox").click();
+      }
+      if (!document.getElementById("OAKcheckbox").checked) {
+        document.getElementById("OAKcheckbox").click();
+      }
+      if (!document.getElementById("SEAcheckbox").checked) {
+        document.getElementById("SEAcheckbox").click();
+      }
+      if (!document.getElementById("TEXcheckbox").checked) {
+        document.getElementById("TEXcheckbox").click();
+      }
+      if (!document.getElementById("ATLcheckbox").checked) {
+        document.getElementById("ATLcheckbox").click();
+      }
+      if (!document.getElementById("FLAcheckbox").checked) {
+        document.getElementById("FLAcheckbox").click();
+      }
+      if (!document.getElementById("NYMcheckbox").checked) {
+        document.getElementById("NYMcheckbox").click();
+      }
+      if (!document.getElementById("PHIcheckbox").checked) {
+        document.getElementById("PHIcheckbox").click();
+      }
+      if (!document.getElementById("WSNcheckbox").checked) {
+        document.getElementById("WSNcheckbox").click();
+      }
+      if (!document.getElementById("CHCcheckbox").checked) {
+        document.getElementById("CHCcheckbox").click();
+      }
+      if (!document.getElementById("CINcheckbox").checked) {
+        document.getElementById("CINcheckbox").click();
+      }
+      if (!document.getElementById("MILcheckbox").checked) {
+        document.getElementById("MILcheckbox").click();
+      }
+      if (!document.getElementById("PITcheckbox").checked) {
+        document.getElementById("PITcheckbox").click();
+      }
+      if (!document.getElementById("STLcheckbox").checked) {
+        document.getElementById("STLcheckbox").click();
+      }
+      if (!document.getElementById("ARIcheckbox").checked) {
+        document.getElementById("ARIcheckbox").click();
+      }
+      if (!document.getElementById("COLcheckbox").checked) {
+        document.getElementById("COLcheckbox").click();
+      }
+      if (!document.getElementById("LADcheckbox").checked) {
+        document.getElementById("LADcheckbox").click();
+      }
+      if (!document.getElementById("SDPcheckbox").checked) {
+        document.getElementById("SDPcheckbox").click();
+      }
+      if (!document.getElementById("SFGcheckbox").checked) {
+        document.getElementById("SFGcheckbox").click();
+      }
+
+    }
 
 });
