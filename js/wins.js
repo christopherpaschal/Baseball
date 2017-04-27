@@ -494,548 +494,64 @@ d3.csv("data/Teams.csv", function(error, data) {
           tooltip.style("opacity", 0);
       });
 
+    // listen for team checkbox changes
     d3.selectAll("input[name='checkbox']").on("change", function() {
-
-      // check all team's checkboxes, grey out accordingly
-
-      if (document.getElementById("BALcheckbox").checked) {
-        svg.selectAll("#BALWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#BALWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#BALWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#BALWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#BALWinsDot").style("display", "none");
+      var boxes = document.getElementsByTagName("input");
+      for (var i = 0; i < boxes.length; i++) {
+        var lineID = "#" + boxes[i].id.substring(0, 3) + "WinsLine";
+        var dotID = "#" + boxes[i].id.substring(0, 3) + "WinsDot";
+        if (boxes[i].checked) {
+          svg.selectAll(lineID).transition().duration(1000).style("opacity", 1);
+          svg.selectAll(dotID).style("display", "inline")
+            .transition().duration(1000)
+            .style("opacity", function(d) {
+              if (d.WSWin == "Y") {
+                return 1;
+              } else {
+                return 0;
+              }
+            });
+        } else {
+          svg.selectAll(lineID).transition().duration(1000).style("opacity", 0.1);
+          svg.selectAll(dotID).transition().duration(1000).style("opacity", 0.1);
+          svg.selectAll(dotID).style("display", "none");
+        }
       }
-
-      if (document.getElementById("BOScheckbox").checked) {
-        svg.selectAll("#BOSWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#BOSWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#BOSWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#BOSWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#BOSWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("NYYcheckbox").checked) {
-        svg.selectAll("#NYYWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#NYYWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#NYYWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#NYYWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#NYYWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("TBDcheckbox").checked) {
-        svg.selectAll("#TBDWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#TBDWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#TBDWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#TBDWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#TBDWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("TORcheckbox").checked) {
-        svg.selectAll("#TORWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#TORWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#TORWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#TORWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#TORWinsDot").style("display", "none");
-      }
-
-
-
-
-      if (document.getElementById("CHWcheckbox").checked) {
-        svg.selectAll("#CHWWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#CHWWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#CHWWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#CHWWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#CHWWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("CLEcheckbox").checked) {
-        svg.selectAll("#CLEWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#CLEWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#CLEWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#CLEWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#CLEWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("DETcheckbox").checked) {
-        svg.selectAll("#DETWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#DETWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#DETWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#DETWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#DETWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("KCRcheckbox").checked) {
-        svg.selectAll("#KCRWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#KCRWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#KCRWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#KCRWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#KCRWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("MINcheckbox").checked) {
-        svg.selectAll("#MINWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#MINWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#MINWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#MINWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#MINWinsDot").style("display", "none");
-      }
-
-
-
-      if (document.getElementById("HOUcheckbox").checked) {
-        svg.selectAll("#HOUWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#HOUWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#HOUWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#HOUWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#HOUWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("ANAcheckbox").checked) {
-        svg.selectAll("#ANAWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#ANAWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#ANAWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#ANAWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#ANAWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("OAKcheckbox").checked) {
-        svg.selectAll("#OAKWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#OAKWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#OAKWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#OAKWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#OAKWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("SEAcheckbox").checked) {
-        svg.selectAll("#SEAWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#SEAWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#SEAWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#SEAWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#SEAWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("TEXcheckbox").checked) {
-        svg.selectAll("#TEXWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#TEXWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#TEXWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#TEXWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#TEXWinsDot").style("display", "none");
-      }
-
-
-
-      if (document.getElementById("ATLcheckbox").checked) {
-        svg.selectAll("#ATLWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#ATLWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#ATLWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#ATLWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#ATLWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("FLAcheckbox").checked) {
-        svg.selectAll("#FLAWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#FLAWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#FLAWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#FLAWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#FLAWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("NYMcheckbox").checked) {
-        svg.selectAll("#NYMWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#NYMWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#NYMWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#NYMWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#NYMWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("PHIcheckbox").checked) {
-        svg.selectAll("#PHIWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#PHIWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#PHIWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#PHIWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#PHIWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("WSNcheckbox").checked) {
-        svg.selectAll("#WSNWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#WSNWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#WSNWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#WSNWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#WSNWinsDot").style("display", "none");
-      }
-
-
-
-      if (document.getElementById("CHCcheckbox").checked) {
-        svg.selectAll("#CHCWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#CHCWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#CHCWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#CHCWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#CHCWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("CINcheckbox").checked) {
-        svg.selectAll("#CINWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#CINWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#CINWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#CINWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#CINWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("MILcheckbox").checked) {
-        svg.selectAll("#MILWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#MILWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#MILWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#MILWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#MILWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("PITcheckbox").checked) {
-        svg.selectAll("#PITWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#PITWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#PITWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#PITWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#PITWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("STLcheckbox").checked) {
-        svg.selectAll("#STLWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#STLWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#STLWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#STLWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#STLWinsDot").style("display", "none");
-      }
-
-
-
-      if (document.getElementById("ARIcheckbox").checked) {
-        svg.selectAll("#ARIWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#ARIWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#ARIWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#ARIWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#ARIWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("COLcheckbox").checked) {
-        svg.selectAll("#COLWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#COLWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#COLWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#COLWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#COLWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("LADcheckbox").checked) {
-        svg.selectAll("#LADWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#LADWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#LADWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#LADWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#LADWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("SDPcheckbox").checked) {
-        svg.selectAll("#SDPWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#SDPWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#SDPWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#SDPWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#SDPWinsDot").style("display", "none");
-      }
-
-      if (document.getElementById("SFGcheckbox").checked) {
-        svg.selectAll("#SFGWinsLine").transition().duration(1000).style("opacity", 1);
-        svg.selectAll("#SFGWinsDot").style("display", "inline")
-          .transition().duration(1000)
-          .style("opacity", function(d) {
-            if (d.WSWin == "Y") {
-              return 1;
-            } else {
-              return 0;
-            }
-          });
-      } else {
-        svg.selectAll("#SFGWinsLine").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#SFGWinsDot").transition().duration(1000).style("opacity", 0.1);
-        svg.selectAll("#SFGWinsDot").style("display", "none");
-      }
-
-
     });
 
+    // uncheck all teams
     document.getElementById("uncheckAll").onclick = function() {
       var boxes = document.getElementsByTagName("input");
       for (var i = 0; i < boxes.length; i++) {
         if (boxes[i].checked) {
-          boxes[i].click();
+          boxes[i].checked = false;
+          var lineID = "#" + boxes[i].id.substring(0, 3) + "WinsLine";
+          var dotID = "#" + boxes[i].id.substring(0, 3) + "WinsDot";
+          svg.selectAll(lineID).transition().duration(1000).style("opacity", 0.1);
+          svg.selectAll(dotID).transition().duration(1000).style("opacity", 0.1);
+          svg.selectAll(dotID).style("display", "none");
         }
       }
     }
 
+    // check all teams
     document.getElementById("checkAll").onclick = function() {
       var boxes = document.getElementsByTagName("input");
       for (var i = 0; i < boxes.length; i++) {
         if (!boxes[i].checked) {
-          boxes[i].click();
+          boxes[i].checked = true;
+          var lineID = "#" + boxes[i].id.substring(0, 3) + "WinsLine";
+          var dotID = "#" + boxes[i].id.substring(0, 3) + "WinsDot";
+          svg.selectAll(lineID).transition().duration(1000).style("opacity", 1);
+          svg.selectAll(dotID).style("display", "inline")
+            .transition().duration(1000)
+            .style("opacity", function(d) {
+              if (d.WSWin == "Y") {
+                return 1;
+              } else {
+                return 0;
+              }
+            });
         }
       }
     }
