@@ -12,7 +12,12 @@
   text-align: left;
 }
 
-.teamCheckbox {
+.teamCheckbox, #team_select_1, #team_select_2 {
+  display: inline-block;
+}
+
+#team_spacer {
+  width: 400px;
   display: inline-block;
 }
 
