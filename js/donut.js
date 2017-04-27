@@ -16,13 +16,13 @@ var pie = d3.pie()
     .sort(null)
     .value(function(d) { return d.percent; });
 
-var svgTS1 = d3.select("#team_select_1").append("svg")
+var svgTS1 = d3.select("#donut_1").append("svg")
     .attr("width", 200 + margin.left + margin.right)
     .attr("height", 200 + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + 200 / 2 + "," + 200 / 2 + ")");
 
-var svgTS2 = d3.select("#team_select_2").append("svg")
+var svgTS2 = d3.select("#donut_2").append("svg")
     .attr("width", 200 + margin.left + margin.right)
     .attr("height", 200 + margin.top + margin.bottom)
   .append("g")
