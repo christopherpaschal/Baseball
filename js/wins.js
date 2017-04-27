@@ -5,24 +5,16 @@ var margin = {top: 25, right: 25, bottom: 25, left: 25},
 
 
 // set the scales
-var xScale = d3.scaleLinear().range([0, width]);
-var yScale = d3.scaleLinear().range([height, 0]);
+var xScaleWC = d3.scaleLinear().range([0, width]);
+var yScaleWC = d3.scaleLinear().range([height, 0]);
 
 
-var svg = d3.select("#wins_view").append("svg")
+var svgWC = d3.select("#wins_view").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .attr("class", "main")
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-//append clip path for lines plotted, hiding those part out of bounds
-svg.append("defs")
-  .append("clipPath")
-    .attr("id", "clip")
-    .append("rect")
-    .attr("width", width)
-    .attr("height", height);
 
 var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
@@ -150,16 +142,16 @@ d3.csv("data/Teams.csv", function(error, data) {
   });
 
   // set domains of scales
-  xScale.domain([1900, 2016]);
-  yScale.domain([0, 162]);
+  xScaleWC.domain([1900, 2016]);
+  yScaleWC.domain([0, 162]);
 
   // define the line
   var winsLine = d3.line()
-      .x(function(d) { return xScale(d.Year); })
-      .y(function(d) { return yScale(d.Wins); });
+      .x(function(d) { return xScaleWC(d.Year); })
+      .y(function(d) { return yScaleWC(d.Wins); });
 
   // Add the line for each team
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "WSN";
       })])
@@ -168,7 +160,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("WSN"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "TOR";
       })])
@@ -177,7 +169,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("TOR"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "TEX";
       })])
@@ -186,7 +178,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("TEX"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "TBD";
       })])
@@ -195,7 +187,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("TBD"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "STL";
       })])
@@ -204,7 +196,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("STL"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "SFG";
       })])
@@ -213,7 +205,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("SFG"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "SEA";
       })])
@@ -222,7 +214,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("SEA"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "SDP";
       })])
@@ -231,7 +223,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("SDP"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "PIT";
       })])
@@ -240,7 +232,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("PIT"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "PHI";
       })])
@@ -249,7 +241,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("PHI"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "OAK";
       })])
@@ -258,7 +250,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("OAK"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "NYM";
       })])
@@ -267,7 +259,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("NYM"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "NYY";
       })])
@@ -276,7 +268,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("NYY"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "MIN";
       })])
@@ -285,7 +277,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("MIN"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "MIL";
       })])
@@ -294,7 +286,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("MIL"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "FLA";
       })])
@@ -303,7 +295,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("FLA"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "LAD";
       })])
@@ -312,7 +304,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("LAD"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "ANA";
       })])
@@ -321,7 +313,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("ANA"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "KCR";
       })])
@@ -330,7 +322,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("KCR"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "HOU";
       })])
@@ -339,7 +331,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("HOU"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "DET";
       })])
@@ -348,7 +340,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("DET"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "COL";
       })])
@@ -357,7 +349,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("COL"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "CLE";
       })])
@@ -366,7 +358,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("CLE"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "CIN";
       })])
@@ -375,7 +367,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("CIN"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "CHC";
       })])
@@ -384,7 +376,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("CHC"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "CHW";
       })])
@@ -393,7 +385,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("CHW"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "BOS";
       })])
@@ -402,7 +394,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("BOS"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "BAL";
       })])
@@ -411,7 +403,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("BAL"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "ARI";
       })])
@@ -420,7 +412,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .attr("stroke", teamColor("ARI"))
       .attr("d", winsLine);
 
-  svg.append("path")
+  svgWC.append("path")
       .data([data.filter(function(d) {
         return d.Team == "ATL";
       })])
@@ -431,10 +423,10 @@ d3.csv("data/Teams.csv", function(error, data) {
 
 
   // Add the X Axis
-  svg.append("g")
+  svgWC.append("g")
       .attr('class', 'xAxis')
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(xScale).tickFormat(d3.format("d")))
+      .call(d3.axisBottom(xScaleWC).tickFormat(d3.format("d")))
       .append("text")
         .attr("class", "label")
         .attr("x", width)
@@ -444,9 +436,9 @@ d3.csv("data/Teams.csv", function(error, data) {
         .text("Year");
 
   // Add the Y Axis
-  svg.append("g")
+  svgWC.append("g")
       .attr('class', 'axis')
-      .call(d3.axisLeft(yScale))
+      .call(d3.axisLeft(yScaleWC))
       .append("text")
         .attr("class", "label")
         .attr("transform", "rotate(-90)")
@@ -457,7 +449,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         .text("Wins");
 
   //add scatterplot to overlay on line graph
-  svg.selectAll("dot")
+  svgWC.selectAll("dot")
       .data(data)
   .enter().append("circle")
       .attr("class", "dot")
@@ -465,8 +457,8 @@ d3.csv("data/Teams.csv", function(error, data) {
         return d.Team + "WinsDot";
       })
       .attr("r", 4)
-      .attr("cx", function(d) { return xScale(d.Year); })
-      .attr("cy", function(d) { return yScale(d.Wins); })
+      .attr("cx", function(d) { return xScaleWC(d.Year); })
+      .attr("cy", function(d) { return yScaleWC(d.Wins); })
       .attr("fill", function(d) {
         return teamColor(d.Team);
       })
@@ -501,8 +493,8 @@ d3.csv("data/Teams.csv", function(error, data) {
         var lineID = "#" + boxes[i].id.substring(0, 3) + "WinsLine";
         var dotID = "#" + boxes[i].id.substring(0, 3) + "WinsDot";
         if (boxes[i].checked) {
-          svg.selectAll(lineID).transition().duration(1000).style("opacity", 1);
-          svg.selectAll(dotID).style("display", "inline")
+          svgWC.selectAll(lineID).transition().duration(1000).style("opacity", 1);
+          svgWC.selectAll(dotID).style("display", "inline")
             .transition().duration(1000)
             .style("opacity", function(d) {
               if (d.WSWin == "Y") {
@@ -512,9 +504,9 @@ d3.csv("data/Teams.csv", function(error, data) {
               }
             });
         } else {
-          svg.selectAll(lineID).transition().duration(1000).style("opacity", 0.1);
-          svg.selectAll(dotID).transition().duration(1000).style("opacity", 0.1);
-          svg.selectAll(dotID).style("display", "none");
+          svgWC.selectAll(lineID).transition().duration(1000).style("opacity", 0.1);
+          svgWC.selectAll(dotID).transition().duration(1000).style("opacity", 0.1);
+          svgWC.selectAll(dotID).style("display", "none");
         }
       }
     });
@@ -527,9 +519,9 @@ d3.csv("data/Teams.csv", function(error, data) {
           boxes[i].checked = false;
           var lineID = "#" + boxes[i].id.substring(0, 3) + "WinsLine";
           var dotID = "#" + boxes[i].id.substring(0, 3) + "WinsDot";
-          svg.selectAll(lineID).transition().duration(1000).style("opacity", 0.1);
-          svg.selectAll(dotID).transition().duration(1000).style("opacity", 0.1);
-          svg.selectAll(dotID).style("display", "none");
+          svgWC.selectAll(lineID).transition().duration(1000).style("opacity", 0.1);
+          svgWC.selectAll(dotID).transition().duration(1000).style("opacity", 0.1);
+          svgWC.selectAll(dotID).style("display", "none");
         }
       }
     }
@@ -542,8 +534,8 @@ d3.csv("data/Teams.csv", function(error, data) {
           boxes[i].checked = true;
           var lineID = "#" + boxes[i].id.substring(0, 3) + "WinsLine";
           var dotID = "#" + boxes[i].id.substring(0, 3) + "WinsDot";
-          svg.selectAll(lineID).transition().duration(1000).style("opacity", 1);
-          svg.selectAll(dotID).style("display", "inline")
+          svgWC.selectAll(lineID).transition().duration(1000).style("opacity", 1);
+          svgWC.selectAll(dotID).style("display", "inline")
             .transition().duration(1000)
             .style("opacity", function(d) {
               if (d.WSWin == "Y") {
