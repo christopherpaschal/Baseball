@@ -62,13 +62,13 @@ var teamColor = function(team) {
     } else if (team == "FLA") {
       return "#ff6600";
     } else if (team == "LAD") {
-      return "#ef3e42";
+      return "#005a9c";
     } else if (team == "ANA") {
       return "#ba0021";
     } else if (team == "KCR") {
       return "#004687";
     } else if (team == "HOU") {
-      return "#002d62";
+      return "#eb6e1f";
     } else if (team == "DET") {
       return "#0c2c56";
     } else if (team == "COL") {
