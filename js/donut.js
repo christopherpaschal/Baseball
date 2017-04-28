@@ -18,15 +18,15 @@ var pie = d3.pie()
 
 var svgTS1 = d3.select("#donut_1").append("svg")
     .attr("width", 300 + margin.left + margin.right)
-    .attr("height", 300 + margin.top + margin.bottom)
+    .attr("height", 400 + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + 300 / 2 + "," + 300 / 2 + ")");
+    .attr("transform", "translate(" + 350 / 2 + "," + 300 / 2 + ")");
 
 var svgTS2 = d3.select("#donut_2").append("svg")
     .attr("width", 300 + margin.left + margin.right)
-    .attr("height", 300 + margin.top + margin.bottom)
+    .attr("height", 400 + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + 300 / 2 + "," + 300 / 2 + ")");
+    .attr("transform", "translate(" + 350 / 2 + "," + 300 / 2 + ")");
 
 d3.csv("data/Teams.csv", function(error, data) {
   if (error) throw error;
@@ -108,7 +108,28 @@ d3.csv("data/Teams.csv", function(error, data) {
             return 0;
           }
         })},
-        {percentage: d3.sum(v, function(d) { return d.Wins; }) / d3.sum(v, function(d) { return d.Games; })}
+        {percentage: d3.sum(v, function(d) { return d.Wins; }) / d3.sum(v, function(d) { return d.Games; })},
+        {wsWins: d3.sum(v, function(d) {
+          if (d.WSWin == "Y") {
+            return 1;
+          } else {
+            return 0;
+          }
+        })},
+        {wsAppearances: d3. sum(v, function(d) {
+          if (d.LgWin == "Y") {
+            return 1;
+          } else {
+            return 0;
+          }
+        })},
+        {divTitles: d3. sum(v, function(d) {
+          if (d.DivWin == "Y") {
+            return 1;
+          } else {
+            return 0;
+          }
+        })}
       ]
     })
     .object(data);
@@ -159,6 +180,48 @@ d3.csv("data/Teams.csv", function(error, data) {
         .text(function(d) { if(d.data.percentage) return formatDecimal(d.data.percentage); })
         .attr("fill", teamColor(team));
 
+    b.append("text")
+      .attr("class", "text")
+      .style("opacity", 0)
+      .transition()
+      .duration(2000)
+      .style("opacity", 1)
+      .attr("dy", ".3em")
+      .attr("text-anchor", "middle")
+      .attr("transform", function (d) { return "translate(" + 0 + "," + 170 + ")"; })
+      .attr("fill", "black")
+      .text(function(d) { if (d.data.divTitles >= 0) return "Division Titles: " + d.data.divTitles;
+      })
+      .attr("fill", teamColor(team));
+
+    b.append("text")
+      .attr("class", "text")
+      .style("opacity", 0)
+      .transition()
+      .duration(2000)
+      .style("opacity", 1)
+      .attr("dy", ".3em")
+      .attr("text-anchor", "middle")
+      .attr("transform", function (d) { return "translate(" + 0 + "," + 200 + ")"; })
+      .attr("fill", "black")
+      .text(function(d) { if (d.data.wsAppearances >= 0) return "WS Appearances: " + d.data.wsAppearances;
+      })
+      .attr("fill", teamColor(team));
+
+    b.append("text")
+      .attr("class", "text")
+      .style("opacity", 0)
+      .transition()
+      .duration(2000)
+      .style("opacity", 1)
+      .attr("dy", ".3em")
+      .attr("text-anchor", "middle")
+      .attr("transform", function (d) { return "translate(" + 0 + "," + 235 + ")"; })
+      .attr("fill", "black")
+      .text(function(d) { if (d.data.wsWins >= 0) return "WS Wins: " + d.data.wsWins;
+      })
+      .attr("fill", teamColor(team));
+
   };
 
   team2.onchange = function() {
@@ -203,9 +266,50 @@ d3.csv("data/Teams.csv", function(error, data) {
         .delay(1000)
         .attr("dy", ".4em")
         .attr("text-anchor", "middle")
-        .attr("fill", "black")
         .text(function(d) { if(d.data.percentage) return formatDecimal(d.data.percentage); })
         .attr("fill", teamColor(team));
+
+    b.append("text")
+      .attr("class", "text")
+      .style("opacity", 0)
+      .transition()
+      .duration(2000)
+      .style("opacity", 1)
+      .attr("dy", ".3em")
+      .attr("text-anchor", "middle")
+      .attr("transform", function (d) { return "translate(" + 0 + "," + 170 + ")"; })
+      .attr("fill", "black")
+      .text(function(d) { if (d.data.divTitles >= 0) return "Division Titles: " + d.data.divTitles;
+      })
+      .attr("fill", teamColor(team));
+
+    b.append("text")
+      .attr("class", "text")
+      .style("opacity", 0)
+      .transition()
+      .duration(2000)
+      .style("opacity", 1)
+      .attr("dy", ".3em")
+      .attr("text-anchor", "middle")
+      .attr("transform", function (d) { return "translate(" + 0 + "," + 200 + ")"; })
+      .attr("fill", "black")
+      .text(function(d) { if (d.data.wsAppearances >= 0) return "WS Appearances: " + d.data.wsAppearances;
+      })
+      .attr("fill", teamColor(team));
+
+    b.append("text")
+      .attr("class", "text")
+      .style("opacity", 0)
+      .transition()
+      .duration(2000)
+      .style("opacity", 1)
+      .attr("dy", ".3em")
+      .attr("text-anchor", "middle")
+      .attr("transform", function (d) { return "translate(" + 0 + "," + 235 + ")"; })
+      .attr("fill", "black")
+      .text(function(d) { if (d.data.wsWins >= 0) return "WS Wins: " + d.data.wsWins;
+      })
+      .attr("fill", teamColor(team));
 
   };
 
