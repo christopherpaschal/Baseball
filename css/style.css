@@ -1,3 +1,7 @@
+body {
+  text-align: center;
+}
+
 .line {
   fill: none;
 }
@@ -12,6 +16,27 @@
   text-align: left;
 }
 
-.teamCheckbox {
+.teamCheckbox, #team_select_1, #team_select_2 {
   display: inline-block;
+  text-align: center;
+}
+
+#team_spacer {
+  width: 300px;
+  display: inline-block;
+}
+
+#wins_view, #heatmap_view {
+  height: 600px;
+  width: 1200px;
+}
+
+#team_view text {
+  font-size: 2em;
+  pointer-events: none;
+}
+
+#team_view .avg {
+  font-size: 3em;
+  pointer-events: none;
 }
