@@ -5,28 +5,28 @@ var margin = {top: 25, right: 25, bottom: 25, left: 35},
 
 var formatDecimal = d3.format(".3f");
 
-var radius = Math.min(200, 200) / 2;
+var radius = 150;
 
 var arc = d3.arc()
     .outerRadius(radius - 10)
-    .innerRadius(radius - 40)
+    .innerRadius(radius - 80)
     .padAngle(.03);
 
 var pie = d3.pie()
     .sort(null)
-    .value(function(d) { return d.percent; });
+    .value(function(d) { return d.seasons; });
 
 var svgTS1 = d3.select("#donut_1").append("svg")
-    .attr("width", 200 + margin.left + margin.right)
-    .attr("height", 200 + margin.top + margin.bottom)
+    .attr("width", 300 + margin.left + margin.right)
+    .attr("height", 300 + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + 200 / 2 + "," + 200 / 2 + ")");
+    .attr("transform", "translate(" + 300 / 2 + "," + 300 / 2 + ")");
 
 var svgTS2 = d3.select("#donut_2").append("svg")
-    .attr("width", 200 + margin.left + margin.right)
-    .attr("height", 200 + margin.top + margin.bottom)
+    .attr("width", 300 + margin.left + margin.right)
+    .attr("height", 300 + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + 200 / 2 + "," + 200 / 2 + ")");
+    .attr("transform", "translate(" + 300 / 2 + "," + 300 / 2 + ")");
 
 d3.csv("data/Teams.csv", function(error, data) {
   if (error) throw error;
@@ -84,32 +84,50 @@ d3.csv("data/Teams.csv", function(error, data) {
       return d.Year >= 1900;
   });
 
-  var team1 = d3.select("#team_selector_1");
+  var team1 = document.getElementById("team_selector_1");
+  var team2 = document.getElementById("team_selector_2");
 
-  var teamHistory = d3.nest()
+  var teamData = d3.nest()
     .key(function(d) { return d.Team; })
     .rollup(function(v) {
       return [
-        {avg: formatDecimal(d3.mean(v, function(d) { return d.Games; }))},
-        {name:"total_pos", percent: d3.sum(v, function(d) { return +d.Wins; })},
-        {name:"total_neg", percent: d3.sum(v, function(d) { return +d.Losses; })}
+        {totalGames: d3.sum(v, function(d) { return d.Games; })},
+        {totalWins: d3.sum(v, function(d) { return d.Wins; })},
+        {totalLosses: d3.sum(v, function(d) { return d.Losses; })},
+        {name: "win", seasons: d3.sum(v, function(d) {
+          if (d.Wins >= (d.Games / 2)) {
+            return 1;
+          } else {
+            return 0;
+          }
+        })},
+        {name: "lose", seasons: d3.sum(v, function(d) {
+          if (d.Wins < (d.Games / 2)) {
+            return 1;
+          } else {
+            return 0;
+          }
+        })},
+        {percentage: d3.sum(v, function(d) { return d.Wins; }) / d3.sum(v, function(d) { return d.Games; })}
       ]
     })
     .object(data);
 
-  team1.on("change", function() {
+  team1.onchange = function() {
 
-    svgTS1.selectAll(".arc").remove()
-    svgTS1.selectAll("text").remove()
+    var team = team1.options[team1.selectedIndex].value;
+    svgTS1.selectAll(".arc").remove();
+    svgTS1.selectAll("text").remove();
+    //console.log(teamData[team]);
 
     var b = svgTS1.selectAll(".arc")
-        .data(pie(teamHistory[document.getElementById("team_selector_1").value]))
+        .data(pie(teamData[team]))
       .enter().append("g")
         .attr("class", "arc");
 
     var path = b.append("path")
         .attr("d", arc)
-        .style("fill", function(d) { return (d.data.name == "total_pos") ? "green" : "red"; });
+        .style("fill", function(d) { return (d.data.name == "win") ? "green" : "red"; });
 
     path.transition()
       .duration(1000)
@@ -118,6 +136,7 @@ d3.csv("data/Teams.csv", function(error, data) {
           return function(t) {
               return arc(interpolate(t));
           };
+      });
 
     b.append("text")
         .transition()
@@ -126,7 +145,8 @@ d3.csv("data/Teams.csv", function(error, data) {
         .attr("transform", function (d) { return "translate(" + arc.centroid(d) + ")"; })
         .attr("dy", ".4em")
         .attr("text-anchor", "middle")
-        .text(function(d) { if(d.data.percent) {return d.data.percent; } });
+        .text(function(d) { if(d.data.seasons) {return d.data.seasons; } })
+        .attr("fill", "white");
 
     b.append("text")
         .attr("class", "avg")
@@ -135,11 +155,58 @@ d3.csv("data/Teams.csv", function(error, data) {
         .delay(1000)
         .attr("dy", ".4em")
         .attr("text-anchor", "middle")
-        .attr("fill", function(d) { return z(d.data.avg); })
-        .text(function(d) { return d.data.avg; });
-    });
+        .attr("fill", "black")
+        .text(function(d) { if(d.data.percentage) return formatDecimal(d.data.percentage); })
+        .attr("fill", teamColor(team));
 
+  };
 
-  });
+  team2.onchange = function() {
+
+    var team = team2.options[team2.selectedIndex].value;
+    svgTS2.selectAll(".arc").remove();
+    svgTS2.selectAll("text").remove();
+    //console.log(teamData[team]);
+
+    var b = svgTS2.selectAll(".arc")
+        .data(pie(teamData[team]))
+      .enter().append("g")
+        .attr("class", "arc");
+
+    var path = b.append("path")
+        .attr("d", arc)
+        .style("fill", function(d) { return (d.data.name == "win") ? "green" : "red"; });
+
+    path.transition()
+      .duration(1000)
+      .attrTween('d', function(d) {
+          var interpolate = d3.interpolate({startAngle: 0, endAngle: 0}, d);
+          return function(t) {
+              return arc(interpolate(t));
+          };
+      });
+
+    b.append("text")
+        .transition()
+        .duration(200)
+        .delay(1000)
+        .attr("transform", function (d) { return "translate(" + arc.centroid(d) + ")"; })
+        .attr("dy", ".4em")
+        .attr("text-anchor", "middle")
+        .text(function(d) { if(d.data.seasons) {return d.data.seasons; } })
+        .attr("fill", "white");
+
+    b.append("text")
+        .attr("class", "avg")
+        .transition()
+        .duration(200)
+        .delay(1000)
+        .attr("dy", ".4em")
+        .attr("text-anchor", "middle")
+        .attr("fill", "black")
+        .text(function(d) { if(d.data.percentage) return formatDecimal(d.data.percentage); })
+        .attr("fill", teamColor(team));
+
+  };
 
 });

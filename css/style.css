@@ -25,3 +25,13 @@
   height: 600px;
   width: 1200px;
 }
+
+#team_view text {
+  font-size: 2em;
+  pointer-events: none;
+}
+
+#team_view .avg {
+  font-size: 3em;
+  pointer-events: none;
+}
