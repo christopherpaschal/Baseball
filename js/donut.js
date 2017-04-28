@@ -139,7 +139,7 @@ d3.csv("data/Teams.csv", function(error, data) {
     var team = team1.options[team1.selectedIndex].value;
     svgTS1.selectAll(".arc").remove();
     svgTS1.selectAll("text").remove();
-    //console.log(teamData[team]);
+    console.log(team);
 
     var b = svgTS1.selectAll(".arc")
         .data(pie(teamData[team]))

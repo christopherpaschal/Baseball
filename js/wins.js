@@ -70,7 +70,7 @@ var teamColor = function(team) {
     } else if (team == "CIN") {
       return "#c6011f";
     } else if (team == "CHC") {
-      return "#cc3433";
+      return "#0e3386";
     } else if (team == "CHW") {
       return "#000000";
     } else if (team == "BOS") {
