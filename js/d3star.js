@@ -116,7 +116,9 @@ d3.starPlot = function() {
   }
 
   function drawInteraction() {
-    var path = d3.radialLine();
+    var path = d3.radialLine()
+      .angle(function(d) { return d[1]})
+      .radius(function(d) { return d[0]});;
 
     // `*Interaction` variables are used to build the interaction layer.
     // `*Extent` variables are used to compute (and return) the x,y
