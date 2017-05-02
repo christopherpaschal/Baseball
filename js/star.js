@@ -4,9 +4,16 @@ var margin = {top: 25, right: 25, bottom: 25, left: 55},
     height = 600 - margin.top - margin.bottom;
 
 
-var svgS = d3.select("#star_1").append("svg")
-    .attr("width", 500 + margin.left + margin.right)
-    .attr("height", 500 + margin.top + margin.bottom)
+var svgS1 = d3.select("#star_1").append("svg")
+    .attr("width", 300 + margin.left + margin.right)
+    .attr("height", 300 + margin.top + margin.bottom)
+    .attr("class", "main")
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var svgS2 = d3.select("#star_2").append("svg")
+    .attr("width", 300 + margin.left + margin.right)
+    .attr("height", 300 + margin.top + margin.bottom)
     .attr("class", "main")
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -76,9 +83,12 @@ var teamColor = function(team) {
 }
 
 for (year = 2016; year >= 1900; year--) {
-  var option = document.createElement("option");
-  option.text = year;
-  var select = document.getElementById("year_star_selector_1").add(option);
+  var option1 = document.createElement("option");
+  var option2 = document.createElement("option");
+  option1.text = year;
+  option2.text = year;
+  var select1 = document.getElementById("year_star_selector_1").add(option1);
+  var select2 = document.getElementById("year_star_selector_2").add(option2);
 }
 
 // Get the data
@@ -163,22 +173,22 @@ d3.csv("data/Teams.csv", function(error, data) {
     var team = team1.options[team1.selectedIndex].value;
     var year = year1.options[year1.selectedIndex].value;
 
-    if (team == "select a team" || year1.selectedIndex == 0) {
+    if (team == "NONE" || year == "NONE") {
       return
     }
 
-    svgS.selectAll(".star-origin").remove();
-    svgS.selectAll(".star-label").remove();
-    svgS.selectAll(".star-axis").remove();
-    svgS.selectAll(".star-path").remove();
-    svgS.selectAll(".star-title").remove();
+    svgS1.selectAll(".star-origin").remove();
+    svgS1.selectAll(".star-label").remove();
+    svgS1.selectAll(".star-axis").remove();
+    svgS1.selectAll(".star-path").remove();
+    svgS1.selectAll(".star-title").remove();
 
     teamData = data.filter(function(d) {
         return d.Year == year && d.Team == team;
     });
 
     var star = d3.starPlot()
-        .width(350)
+        .width(300)
         .properties([
           "H",
           "R",
@@ -202,7 +212,7 @@ d3.csv("data/Teams.csv", function(error, data) {
         .includeGuidelines(true)
         .fillColor(teamColor(team));
 
-    var starG = svgS
+    var starG = svgS1
         .datum(teamData[0])
         .call(star)
   }
@@ -212,15 +222,15 @@ d3.csv("data/Teams.csv", function(error, data) {
     var team = team1.options[team1.selectedIndex].value;
     var year = year1.options[year1.selectedIndex].value;
 
-    if (team == "select a team" || year1.selectedIndex == 0) {
+    if (team == "NONE" || year == "NONE") {
       return
     }
 
-    svgS.selectAll(".star-origin").remove();
-    svgS.selectAll(".star-label").remove();
-    svgS.selectAll(".star-axis").remove();
-    svgS.selectAll(".star-path").remove();
-    svgS.selectAll(".star-title").remove();
+    svgS1.selectAll(".star-origin").remove();
+    svgS1.selectAll(".star-label").remove();
+    svgS1.selectAll(".star-axis").remove();
+    svgS1.selectAll(".star-path").remove();
+    svgS1.selectAll(".star-title").remove();
 
     teamData = data.filter(function(d) {
         return d.Year == year && d.Team == team;
@@ -231,7 +241,7 @@ d3.csv("data/Teams.csv", function(error, data) {
     }
 
     var star = d3.starPlot()
-        .width(350)
+        .width(300)
         .properties([
           "H",
           "R",
@@ -255,7 +265,109 @@ d3.csv("data/Teams.csv", function(error, data) {
         .includeGuidelines(true)
         .fillColor(teamColor(team));
 
-    var starG = svgS
+    var starG = svgS1
+        .datum(teamData[0])
+        .call(star)
+  }
+
+  team2.onchange = function() {
+
+    var team = team2.options[team2.selectedIndex].value;
+    var year = year2.options[year2.selectedIndex].value;
+
+    if (team == "NONE" || year == "NONE") {
+      return
+    }
+
+    svgS2.selectAll(".star-origin").remove();
+    svgS2.selectAll(".star-label").remove();
+    svgS2.selectAll(".star-axis").remove();
+    svgS2.selectAll(".star-path").remove();
+    svgS2.selectAll(".star-title").remove();
+
+    teamData = data.filter(function(d) {
+        return d.Year == year && d.Team == team;
+    });
+
+    var star = d3.starPlot()
+        .width(300)
+        .properties([
+          "H",
+          "R",
+          "HR",
+          "HA",
+          "RA",
+          "SOA"
+        ])
+        .scales([scaleH, scaleR, scaleHR, scaleHA, scaleRA, scaleSOA])
+        .labels([
+          "Hits",
+          "Runs",
+          "HRs",
+          "Hits Allowed",
+          "Runs Against",
+          "Strikeouts"
+        ])
+        .title(function(d) { return d.Year + " " + d.Team; })
+        .margin(margin)
+        .labelMargin(8)
+        .includeGuidelines(true)
+        .fillColor(teamColor(team));
+
+    var starG = svgS2
+        .datum(teamData[0])
+        .call(star)
+  }
+
+  year2.onchange = function() {
+
+    var team = team2.options[team2.selectedIndex].value;
+    var year = year2.options[year2.selectedIndex].value;
+
+    if (team == "NONE" || year == "NONE") {
+      return
+    }
+
+    svgS2.selectAll(".star-origin").remove();
+    svgS2.selectAll(".star-label").remove();
+    svgS2.selectAll(".star-axis").remove();
+    svgS2.selectAll(".star-path").remove();
+    svgS2.selectAll(".star-title").remove();
+
+    teamData = data.filter(function(d) {
+        return d.Year == year && d.Team == team;
+    });
+
+    if (!teamData[0]) {
+      return
+    }
+
+    var star = d3.starPlot()
+        .width(300)
+        .properties([
+          "H",
+          "R",
+          "HR",
+          "HA",
+          "RA",
+          "SOA"
+        ])
+        .scales([scaleH, scaleR, scaleHR, scaleHA, scaleRA, scaleSOA])
+        .labels([
+          "Hits",
+          "Runs",
+          "HRs",
+          "Hits Allowed",
+          "Runs Against",
+          "Strikeouts"
+        ])
+        .title(function(d) { return d.Year + " " + d.Team; })
+        .margin(margin)
+        .labelMargin(8)
+        .includeGuidelines(true)
+        .fillColor(teamColor(team));
+
+    var starG = svgS2
         .datum(teamData[0])
         .call(star)
   }

@@ -41,6 +41,22 @@ body {
   pointer-events: none;
 }
 
+#star_view {
+  display: inline-block;
+  height: 600px;
+  width: 1200px;
+}
+
+#team_star_1 {
+  width: 600px;
+  float: left;
+}
+
+#team_star_2 {
+  width: 600px;
+  float: right;
+}
+
 .star-origin {
   fill: #333;
 }
