@@ -206,7 +206,7 @@ d3.csv("data/Teams.csv", function(error, data) {
           "Runs Against",
           "Strikeouts"
         ])
-        .title(function(d) { return d.Year + " " + d.Team; })
+        .title(function(d) { return d.Year + " " + d.Name; })
         .margin(margin)
         .labelMargin(8)
         .includeGuidelines(true)
@@ -259,7 +259,7 @@ d3.csv("data/Teams.csv", function(error, data) {
           "Runs Against",
           "Strikeouts"
         ])
-        .title(function(d) { return d.Year + " " + d.Team; })
+        .title(function(d) { return d.Year + " " + d.Name; })
         .margin(margin)
         .labelMargin(8)
         .includeGuidelines(true)
@@ -308,7 +308,7 @@ d3.csv("data/Teams.csv", function(error, data) {
           "Runs Against",
           "Strikeouts"
         ])
-        .title(function(d) { return d.Year + " " + d.Team; })
+        .title(function(d) { return d.Year + " " + d.Name; })
         .margin(margin)
         .labelMargin(8)
         .includeGuidelines(true)
@@ -361,7 +361,7 @@ d3.csv("data/Teams.csv", function(error, data) {
           "Runs Against",
           "Strikeouts"
         ])
-        .title(function(d) { return d.Year + " " + d.Team; })
+        .title(function(d) { return d.Year + " " + d.Name; })
         .margin(margin)
         .labelMargin(8)
         .includeGuidelines(true)
