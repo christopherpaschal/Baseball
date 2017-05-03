@@ -255,11 +255,37 @@
       <div id="star_2"></div>
     </div>
   </div>
+  <div id="spacer"></br></br></br></br></br></div>
+  <div id="scatter_selector">
+    X axis: <select id="select_x">
+      <option value="H">Hits</option>
+      <option value="HR">Home Runs</option>
+      <option value="R">Runs</option>
+      <option value="HA">Hits Allowed</option>
+      <option value="RA">Runs Allowed</option>
+      <option value="SOA">Strikeouts</option>
+      <option value="HRA">Home Runs Allowed</option>
+      <option value="Year">Year</option>
+    </select>
+    Y axis: <select id="select_y">
+      <option value="HR">Home Runs</option>
+      <option value="H">Hits</option>
+      <option value="R">Runs</option>
+      <option value="HA">Hits Allowed</option>
+      <option value="RA">Runs Allowed</option>
+      <option value="SOA">Strikeouts</option>
+      <option value="HRA">Home Runs Allowed</option>
+      <option value="Wins">Wins</option>
+    </select>
+  </div>
+  <div id="spacer"></br></br></div>
+  <div id="scatter_view"></div>
 
   <!-- main D3 script -->
   <script src="js/wins.js"></script>
   <script src="js/donut.js"></script>
   <script src="js/star.js"></script>
+  <script src="js/scatter.js"></script>
 
 </body>
 </html>
