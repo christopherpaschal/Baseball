@@ -22,7 +22,7 @@ d3.starPlot = function() {
       scale = d3.scaleLinear()
         .domain([0, 100])
         .range([0, radius]),
-      fillColor = "#ff0000"
+      fillColor = "#000000"
 
   function chart(selection) {
     datum = selection.datum();
@@ -74,6 +74,7 @@ d3.starPlot = function() {
         .text(typeof labels == "function" ? labels(datum, i) : labels[i])
         .style('text-anchor', 'middle')
         .style('dominant-baseline', 'central')
+        .style("fill", fillColor);
 
       r += radians;
     })
@@ -113,6 +114,7 @@ d3.starPlot = function() {
       .attr('y', -(margin.top / 2))
       .text(title(datum))
       .style('text-anchor', 'middle')
+      .style("fill", fillColor);
   }
 
   function drawInteraction() {

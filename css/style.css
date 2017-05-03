@@ -70,3 +70,7 @@ body {
   stroke-width: 2px;
   fill-opacity: 0.6;
 }
+
+.star-title {
+  font-size: 1.5em;
+}

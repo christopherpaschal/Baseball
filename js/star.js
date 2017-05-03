@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var margin = {top: 25, right: 25, bottom: 25, left: 55},
+var margin = {top: 35, right: 25, bottom: 25, left: 65},
     width = 1200 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
@@ -122,14 +122,14 @@ d3.csv("data/Teams.csv", function(error, data) {
       d.CS = +d.CS;
       d.HBP = +d.HBP;
       d.SF = +d.SF;
-      d.RA = +d.RA;
+      d.RA = (1 / +d.RA);
       d.ER = +d.ER;
       d.ERA = +d.ERA;
       d.CG = +d.CG;
       d.SHO = +d.SHO;
       d.SV = +d.SV;
       d.OP = +d.IPOuts;
-      d.HA = +d.HA;
+      d.HA = (1 / +d.HA);
       d.HRA = +d.HRA;
       d.BBA = +d.BBA;
       d.SOA = +d.SOA;
@@ -202,8 +202,8 @@ d3.csv("data/Teams.csv", function(error, data) {
           "Hits",
           "Runs",
           "HRs",
-          "Hits Allowed",
-          "Runs Against",
+          "1 / Hits Allowed",
+          "1 / Runs Allowed",
           "Strikeouts"
         ])
         .title(function(d) { return d.Year + " " + d.Name; })
@@ -255,8 +255,8 @@ d3.csv("data/Teams.csv", function(error, data) {
           "Hits",
           "Runs",
           "HRs",
-          "Hits Allowed",
-          "Runs Against",
+          "1 / Hits Allowed",
+          "1 / Runs Allowed",
           "Strikeouts"
         ])
         .title(function(d) { return d.Year + " " + d.Name; })
@@ -304,8 +304,8 @@ d3.csv("data/Teams.csv", function(error, data) {
           "Hits",
           "Runs",
           "HRs",
-          "Hits Allowed",
-          "Runs Against",
+          "1 / Hits Allowed",
+          "1 / Runs Allowed",
           "Strikeouts"
         ])
         .title(function(d) { return d.Year + " " + d.Name; })
@@ -357,8 +357,8 @@ d3.csv("data/Teams.csv", function(error, data) {
           "Hits",
           "Runs",
           "HRs",
-          "Hits Allowed",
-          "Runs Against",
+          "1 / Hits Allowed",
+          "1 / Runs Allowed",
           "Strikeouts"
         ])
         .title(function(d) { return d.Year + " " + d.Name; })
