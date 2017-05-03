@@ -9,6 +9,7 @@
   <link href="css/style.css" rel="stylesheet">
   <!-- Google fonts -->
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway|Ubuntu" rel="stylesheet">
 </head>
 
 <body>
@@ -18,6 +19,13 @@
   <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="js/d3star.js"></script>
 
+  <div id="title">
+    <h1>Baseball Through History</h1>
+    <p>Use this visualization to explore various attributes about historic MLB statistics</p>
+  </div>
+
+  </br></br>
+  <p>This graph plots wins for each franchise every year from 1900 to 2016. Dots indicate World Series winners.</p>
   <div id="teams">
     <div id="ALeast" class="teamCheckbox">
       <label for="BAL">
@@ -97,6 +105,7 @@
 
   <div id="wins_view"></div>
   <div id="spacer"></br></br></br></br></br></div>
+  <p>Using the dropdowns, select a franchise to view their number of winning seasons, losing seasons, overall win %, and postseason appearances.</p>
   <div id="team_view">
     <div id="team_select_1">
       <select id="team_selector_1">
@@ -173,6 +182,7 @@
     </div>
   </div>
   <div id="spacer"></br></br></br></br></br></div>
+  <p>Using the team and year dropdowns, view a radar chart of various offensive and defensive team attributes.</p>
   <div id="star_view">
     <div id="team_star_1">
       <select id="team_star_selector_1">
@@ -255,7 +265,7 @@
       <div id="star_2"></div>
     </div>
   </div>
-  <div id="spacer"></br></br></br></br></br></div>
+  <p>Use this view to look at various coorelations between statistics. Dot size coorelates to wins.</p>
   <div id="scatter_selector">
     X axis: <select id="select_x">
       <option value="H">Hits</option>
@@ -278,7 +288,6 @@
       <option value="Wins">Wins</option>
     </select>
   </div>
-  <div id="spacer"></br></br></div>
   <div id="scatter_view"></div>
 
   <!-- main D3 script -->

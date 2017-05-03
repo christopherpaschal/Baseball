@@ -1,5 +1,12 @@
 body {
   text-align: center;
+  background-color: #dfe1e1;
+  color: #43464B;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+  font-size: 4em;
 }
 
 .line {
@@ -26,7 +33,7 @@ body {
   display: inline-block;
 }
 
-#wins_view, #heatmap_view {
+#wins_view {
   height: 600px;
   width: 1200px;
 }
@@ -43,7 +50,7 @@ body {
 
 #star_view {
   display: inline-block;
-  height: 600px;
+  height: 450px;
   width: 1200px;
 }
 
