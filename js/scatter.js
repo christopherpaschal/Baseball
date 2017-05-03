@@ -187,7 +187,7 @@ d3.csv("data/Teams.csv", function(error, data) {
       .on("mouseover", function(d) {
         d3.select(this).attr("opacity", 1)
         tooltip.style("opacity", 1);
-        tooltip.html(d.Year + "<br/>" + d.Team + "<br/>" + "Wins: " + d.Wins)
+        tooltip.html(d.Year + "<br/>" + d.Team + "<br/>")
           .style("left", d3.event.pageX + 5 + "px")
           .style("top", d3.event.pageY + 5 + "px")
       })

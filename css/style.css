@@ -10,6 +10,11 @@ body {
   display: inline-block;
 }
 
+.instruct {
+  width: 800px;
+  display: inline-block;
+}
+
 h1 {
   font-size: 4em;
 }
