@@ -143,7 +143,7 @@ d3.csv("data/Teams.csv", function(error, data) {
   });
 
   // set domains of scales
-  xScaleSC.domain([0, 1800]);
+  xScaleSC.domain([700, 1800]);
   yScaleSC.domain([0, 300]);
 
   // Add the X Axis
@@ -203,7 +203,7 @@ d3.csv("data/Teams.csv", function(error, data) {
     var yAxis = selectY.options[selectY.selectedIndex].value;
 
     if (selectX.options[selectX.selectedIndex].value == "H") {
-      xScaleSC.domain([0, 1800]);
+      xScaleSC.domain([700, 1800]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
@@ -247,7 +247,7 @@ d3.csv("data/Teams.csv", function(error, data) {
          .duration(1000)
          .call(d3.axisBottom(xScaleSC));
     } else if (selectX.options[selectX.selectedIndex].value == "R") {
-      xScaleSC.domain([0, 1200]);
+      xScaleSC.domain([200, 1200]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
@@ -269,7 +269,7 @@ d3.csv("data/Teams.csv", function(error, data) {
          .duration(1000)
          .call(d3.axisBottom(xScaleSC));
     } else if (selectX.options[selectX.selectedIndex].value == "HA") {
-      xScaleSC.domain([0, 1700]);
+      xScaleSC.domain([700, 2000]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
@@ -291,7 +291,7 @@ d3.csv("data/Teams.csv", function(error, data) {
          .duration(1000)
          .call(d3.axisBottom(xScaleSC));
     } else if (selectX.options[selectX.selectedIndex].value == "RA") {
-      xScaleSC.domain([0, 1400]);
+      xScaleSC.domain([200, 1300]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
@@ -313,7 +313,7 @@ d3.csv("data/Teams.csv", function(error, data) {
          .duration(1000)
          .call(d3.axisBottom(xScaleSC));
     } else if (selectX.options[selectX.selectedIndex].value == "SOA") {
-      xScaleSC.domain([0, 1500]);
+      xScaleSC.domain([200, 1600]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
@@ -386,7 +386,7 @@ d3.csv("data/Teams.csv", function(error, data) {
     var xAxis = selectX.options[selectX.selectedIndex].value;
 
     if (selectY.options[selectY.selectedIndex].value == "H") {
-      yScaleSC.domain([0, 1800]);
+      yScaleSC.domain([700, 1800]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
@@ -430,7 +430,7 @@ d3.csv("data/Teams.csv", function(error, data) {
          .duration(1000)
          .call(d3.axisLeft(yScaleSC));
     } else if (selectY.options[selectY.selectedIndex].value == "R") {
-      yScaleSC.domain([0, 1200]);
+      yScaleSC.domain([200, 1200]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
@@ -452,7 +452,7 @@ d3.csv("data/Teams.csv", function(error, data) {
          .duration(1000)
          .call(d3.axisLeft(yScaleSC));
     } else if (selectY.options[selectY.selectedIndex].value == "HA") {
-      yScaleSC.domain([0, 1700]);
+      yScaleSC.domain([700, 2000]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
@@ -474,7 +474,7 @@ d3.csv("data/Teams.csv", function(error, data) {
          .duration(1000)
          .call(d3.axisLeft(yScaleSC));
     } else if (selectY.options[selectY.selectedIndex].value == "RA") {
-      yScaleSC.domain([0, 1400]);
+      yScaleSC.domain([200, 1300]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
@@ -496,7 +496,7 @@ d3.csv("data/Teams.csv", function(error, data) {
          .duration(1000)
          .call(d3.axisLeft(yScaleSC));
     } else if (selectY.options[selectY.selectedIndex].value == "SOA") {
-      yScaleSC.domain([0, 1500]);
+      yScaleSC.domain([200, 1600]);
       svgSC.selectAll("circle")
         .data(data)
         .transition()
